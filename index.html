@@ -1,0 +1,255 @@
+<!DOCTYPE html> <!-- Para html5 -->
+
+<html lang="es"> <!-- Parte HTML -->
+
+    <head> <!-- Cabeza de página -->
+
+        <meta charset="UTF-8"> <!-- Para carácteres especiales -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width"> <!-- Adapta a celulares -->
+        <link rel="stylesheet" href="style.css"> <!-- Link a la hoja de estilos -->
+
+            <!-- Fuente externa -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+
+        <title>Encriptador de Texto</title> <!-- Título de la página -->
+
+    </head>
+
+    <body> <!-- Cuerpo de página -->
+        
+        <header> <!-- Cabecera -->
+
+            <img src="imagenes/logo.png" alt="logo" class="logo"> <!-- Logo de Alura -->
+
+        </header>
+
+        <main> <!-- Página -->
+
+            <section class="seccion1">
+
+                <div class="contenedor-texto"> <!-- Contiene la caja de texto -->
+
+                    <textarea placeholder="Ingrese el texto aquí" class="cajaDeTexto"></textarea> <!-- Caja de texto -->
+
+                </div>
+
+                <div class="alerta"> <!-- Contiene el texto de información -->
+
+                    <img src="imagenes/informacion.png" alt="Informacion"> <!-- Imagen de información -->
+                    <p>Solo letras minúsculas y sin acentos</p> <!-- Párrafo -->
+
+                </div>
+
+                <div class="botones"> <!-- Contiene los botones-->
+
+                    <input type="button" class="encriptar" value="Encriptar"> <!-- Botón encriptar -->
+                    <input type="button" class="desencriptar" value="Desencriptar"> <!-- Botón desencriptar -->
+
+                </div>
+
+            </section>
+
+            <section class="seccion2">
+
+                <div class="muneco"> <!-- Contiene el muñeco -->
+
+                    <img src="imagenes/muneco.png" alt="Muñeco"> <!-- Imagen del muñeco -->
+
+                </div>
+
+                <div class="parrafo"> <!-- Contiene el párrafo -->
+
+                    <h3>Ningún mensaje fue <br> encontrado</h3>
+                    <p>Ingresa el texto que desees encriptar o <br> desencriptar</p>
+
+                </div>
+
+                <div class="resultado"> <!-- Contiene el resultado -->
+
+                    <p class="textoResultado"></p> <!-- Párrafo para el resultado -->
+
+                </div>
+
+                <div class="contenedor-copiar"> <!-- Contiene el botón copiar -->
+
+                    <input type="button" class="copiar" value="Copiar"> <!-- Botón copiar-->
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </body>
+
+</html>
+
+<script>
+
+    //Añade el valor de los objetos a las variables globales
+    var botonEncriptar = document.querySelector(".encriptar");
+    var botonDesencriptar = document.querySelector(".desencriptar");
+    var muneco = document.querySelector(".muneco");
+    var parrafo = document.querySelector(".parrafo");
+    var resultado = document.querySelector(".textoResultado");
+
+    //Al hacer click llama a las funciones
+    botonEncriptar.onclick = encriptar;
+    botonDesencriptar.onclick = desencriptar;
+
+    //Función para  ocultar y mostrar el texto encriptado
+    function encriptar()
+    {
+        ocultar();//Oculta el predeterminado
+        var cajaDeTexto = recuperarTexto();//Recoje los valores
+
+        //Añade el resultado llamando a la función
+        resultado.textContent = encriptarTexto(cajaDeTexto);
+    }
+
+    //Función para ocultar y mostrar el texto desencriptado
+    function desencriptar()
+    {
+        ocultar();//Oculta el predeterminado
+        var cajaDeTexto = recuperarTexto();//Recoje los valores
+
+        //Añade el resultado llamando a la función
+        resultado.textContent = desencriptarTexto(cajaDeTexto);
+    }
+
+    //Función para recoger el valor de la caja de texto
+    function recuperarTexto()
+    {
+        //Añade el valor a la variable
+        var cajaDeTexto = document.querySelector(".cajaDeTexto");
+        
+        //Retorna el valor
+        return cajaDeTexto.value;
+    }
+
+    //Función para ocultar la imagen y el párrafo
+    function ocultar()
+    {
+        //Agrega a la clase ocultar
+        muneco.classList.add("ocultar");
+        parrafo.classList.add("ocultar");
+    }
+
+    //Función para encriptar el texto
+    function encriptarTexto(mensaje)
+    {
+        //Variables locales
+        var texto = mensaje;
+        var resultado = "";
+
+        //Ciclo que recorre cada letra del texto
+        for(var i=0;i<texto.length;i++)
+        {
+            if(texto[i] == "a")//Si la letra es a
+            {
+                resultado += "ai";
+            }
+            else
+            {
+                if(texto[i] == "e")//Si la letra es e
+                {
+                    resultado += "enter";
+                }
+                else
+                {
+                    if(texto[i] == "i")//Si la letra es i
+                    {
+                        resultado += "imes";
+                    }
+                    else
+                    {
+                        if(texto[i] == "o")//Si la letra es o
+                        {
+                            resultado += "ober";
+                        }
+                        else
+                        {
+                            if(texto[i] == "u")//Si la letra es u
+                            {
+                                resultado += "ufat";
+                            }
+                            else//Si la letra es consonante
+                            {
+                                resultado += texto[i];
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //Retorna el texto
+        return resultado;
+    }
+
+    //Función para desencriptar el texto
+    function desencriptarTexto(mensaje)
+    {
+        //Variables locales
+        var texto = mensaje;
+        var resultado = "";
+
+        //Ciclo que recorre cada letra del texto
+        for(var i=0;i<texto.length;i++)
+        {
+            if(texto[i] == "a")//Si la letra es a
+            {
+                resultado += "a";
+                i++;
+            }
+            else
+            {
+                if(texto[i] == "e")//Si la letra es e
+                {
+                    resultado += "e";
+                    i += 4;
+                }
+                else
+                {
+                    if(texto[i] == "i")//Si la letra es i
+                    {
+                        resultado += "i";
+                        i += 3;
+                    }
+                    else
+                    {
+                        if(texto[i] == "o")//Si la letra es o
+                        {
+                            resultado += "o";
+                            i += 3;
+                        }
+                        else
+                        {
+                            if(texto[i] == "u")//Si la letra es u
+                            {
+                                resultado += "u";
+                                i += 3;
+                            }
+                            else//Si la letra es consonante
+                            {
+                                resultado += texto[i];
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //Retorna el texto
+        return resultado;
+    }
+
+    //Evento para copiar
+    const btnCopiar = document.querySelector(".copiar");//Coloca la clase en una constante
+        btnCopiar.addEventListener("click", copiar = () => {
+        var contenido = document.querySelector(".resultado").textContent;
+        navigator.clipboard.writeText(contenido);
+    })
+
+</script>

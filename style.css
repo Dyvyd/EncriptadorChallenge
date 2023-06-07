@@ -1,0 +1,280 @@
+/*Propiedades generales*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/*Propiedades para el cuerpo de página*/
+body{
+    background-color: #F4F4FC;
+
+}
+
+/*Propiedades para la cabecera de página*/
+header{
+    width: 100%;
+    height: 70px;
+}
+
+/*Propiedades para el logo*/
+.logo{
+    width: 2%;
+    height: 50%;
+    padding: 2% 0 0 50%;
+}
+
+/*Propiedades para la página*/
+main{
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*Propiedades para la clase contenedor-texto*/
+.contenedor-texto{
+    position: absolute;
+    left: 5%;
+    top: 7%;
+    padding: 0 0 0 100px;
+    width: 160px;
+    height: 370px;
+}
+
+/*Propiedades para la clase cajaDeTexto*/
+.cajaDeTexto{
+    width: 300%;
+    height: 100%;
+    border: none;
+    background-color: #F4F4FC;
+    cursor: pointer;
+    color: #0A3871;
+    font-size: 32px;
+    font-weight: 400;
+}
+
+/*Propiedades para el placeholder la clase cajaDeTexto*/
+.cajaDeTexto::placeholder{
+    color: #0A3871;
+}
+
+/*Propiedades para la clase alerta*/
+.alerta{
+    position: absolute;
+    top: 430px;
+    left: 220px;
+    display: flex;
+    color: #495057;
+}
+
+/*Propiedades para la clase botones*/
+.botones{
+    position: absolute;
+    top: 460px;
+    height: 80px;
+    padding: 15px 0 0 6%;
+}
+
+/*Propiedades para el botón encriptar*/
+.encriptar{
+    width: 320px;
+    height: 62px;
+    border-radius: 24px;
+    background-color: #0A3871;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    border: none;
+    margin: 0 20px 0 0;
+    cursor: pointer;
+}
+
+/*Propiedades para el botón desencriptar*/
+.desencriptar{
+    width: 328px;
+    height: 67px;
+    border-radius: 24px;
+    background-color: #D8DFE8;
+    color: #0A3871;
+    font-size: 16px;
+    font-weight: 400;
+    border: 1% solid #0A3871;
+    cursor: pointer;
+}
+
+/*Propiedades para la sección 2*/
+.seccion2{
+    display: block;
+    position: absolute;
+    width: 400px;
+    height: 570px;
+    right: 10%;
+    margin: 0 0 0 200px;
+    padding: 0 20px 0 0;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 32px;
+    box-shadow: 0px 24px 32px -8px rgba(0,0,0,0.50);
+}
+
+/*Propiedades para la clase muneco*/
+.muneco{
+    position: absolute;
+    left: 5%;
+    top: 0%;
+    box-sizing: border-box;
+    padding: 50px 0 0 0;
+}
+
+/*Propiedades para la clase parrafo*/
+.parrafo{
+    position: absolute;
+    box-sizing: border-box;
+    top: 63%;
+    left: 20%;
+}
+
+/*Propiedades para el subtitulo h3 en la clase parrafo*/
+.parrafo h3{
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: #343A40;
+}
+
+/*Propiedades para el parrafo en la clase parrafo*/
+.parrafo p{
+    font-weight: 400;
+    font-size: 13px;
+    text-align: center;
+    color: #495057;
+    padding: 10% 0 0 0;
+}
+
+/*Propiedades para la clase contenedor-copiar*/
+.contenedor-copiar{
+    display: flex;
+    position: absolute;
+    bottom: 400px;
+    top: 75%;
+    background-color: aqua;
+    padding: 0 0 0 40px;
+}
+
+/*Propiedades para el botón copiar*/
+.copiar{
+    width: 328px;
+    height: 67px;
+    border-radius: 24px;
+    background-color: #FFFFFF;
+    color: #0A3871;
+    font-size: 16px;
+    font-weight: 400;
+    border: 1% solid #0A3871;
+    cursor: pointer;
+    position: relative;
+    top: 50px;
+    right: 4px;
+}
+
+/*Propiedades para la clase resultado*/
+.resultado{
+    position: absolute;
+    bottom: 100px;
+    width: 320px;
+    height: 450px;
+    box-sizing: border-box;
+    margin: 0 0 0 25px;
+}
+
+/*Propiedades para el texto de resultado*/
+.textoResultado{
+    color: #495057;
+    font-size: 25px;
+}
+
+/*Propiedades para la clase ocultar*/
+.ocultar{
+    display: none;
+}
+
+/*Excepción para pantallas menores de 480px*/
+@media screen and (max-width:480px){
+    
+    /*Propiedades para el logo*/
+    .logo {
+        width: 8%;
+        height: 70%;
+        padding: 10% 0 0 50%;
+    }
+
+    /*Propiedades para el contenedor de texto*/
+    .contenedor-texto, .botones{
+        left: 5%;
+        padding: 0 0 0 10%;
+    }
+
+    /*Propiedades generales*/
+    .seccion1, .seccion2, .cajaDeTexto, .alerta, .botones, .muneco, .parrafo, .contenedor-texto, .contenedor-copiar, .resultado{
+        width: auto;
+        height: auto;
+    }
+
+    /*Propiedades para la clase alerta*/
+    .alerta{
+        top: 20%;
+        left: 20%;
+    }
+
+    /*Propiedades para los objetos de la clase alerta*/
+    .alerta img{
+        width: 10%;
+        height: 3%;
+    }
+    .alerta p{
+        width: 90%;
+        height: 3%;
+        font-size: large;
+    }
+
+    /*Propiedad para la clase botones*/
+    .botones{
+        top: 30%;
+        left: 3%;
+    }
+
+    /*Propiedades para la clase seccion2*/
+    .seccion2{
+        top: 50%;
+        left: 0%;
+        margin: 5% 20% 5% 5%;
+    }
+
+    /*Propiedades para los objetos de la seccion2*/
+    .muneco, .resultado, .contenedor-copiar, .parrafo{
+        left: 0%;
+        padding: 0%;
+        margin: 5% 20% 5% 10%;
+        text-align: center;
+    }
+
+    /*Propiedades para el parrafo y resultado*/
+    .parrafo, .resultado{
+        left: 20%;
+        top: 70%;
+    }
+
+    /*Propiedades para el contenedor copiar*/
+    .contenedor-copiar{
+        position: fixed;
+    }
+
+    /*Propiedades para el botón copiar*/
+    .copiar{
+        top: 100%;
+        width: 320px;
+        height: 62px;
+    }
+}
